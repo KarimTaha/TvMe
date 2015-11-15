@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20151115230202) do
     t.string   "country"
     t.date     "date_of_birth"
     t.integer  "gender"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
