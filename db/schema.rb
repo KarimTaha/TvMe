@@ -16,11 +16,13 @@ ActiveRecord::Schema.define(version: 20151115235537) do
   create_table "comments", force: true do |t|
     t.text     "text"
     t.integer  "post_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -39,9 +41,14 @@ ActiveRecord::Schema.define(version: 20151115235537) do
     t.string   "show_name"
     t.string   "imdb_link"
     t.text     "text"
+    t.integer  "user_id"
+    t.integer  "wall_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["wall_id"], name: "index_posts_on_wall_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -58,8 +65,11 @@ ActiveRecord::Schema.define(version: 20151115235537) do
   end
 
   create_table "walls", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "walls", ["user_id"], name: "index_walls_on_user_id"
 
 end
