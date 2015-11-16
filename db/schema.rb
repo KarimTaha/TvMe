@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115233512) do
+ActiveRecord::Schema.define(version: 20151115235537) do
+
+  create_table "comments", force: true do |t|
+    t.text     "text"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -25,6 +34,14 @@ ActiveRecord::Schema.define(version: 20151115233512) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
+
+  create_table "posts", force: true do |t|
+    t.string   "show_name"
+    t.string   "imdb_link"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
