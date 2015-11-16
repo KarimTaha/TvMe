@@ -8,13 +8,18 @@ class User < ActiveRecord::Base
 	attr_accessor :gender
 	attr_accessor :email
 
+    mount_uploaders :avatars, AvatarUploader
+
 	validates :f_name, presence: true
 	validates :l_name, presence: true
     validates :gender, presence: true
     validates :email, presence: true
     validates :username, presence: true
     validates_uniqueness_of :username
-    
-	acts_as_followable
+
+     has_one :wall
+     has_many :posts
+     has_many :comments
+ 	acts_as_followable
     acts_as_follower
 end

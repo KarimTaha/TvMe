@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115230202) do
+ActiveRecord::Schema.define(version: 20151115233512) do
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20151115230202) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+  end
+
+  create_table "walls", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
