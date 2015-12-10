@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :country
       t.date :date_of_birth
       t.integer :gender
-      t.string :email
 
       t.timestamps
     end
