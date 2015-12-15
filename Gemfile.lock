@@ -67,7 +67,10 @@ GEM
     mime-types (2.6.2)
     minitest (5.8.2)
     multi_json (1.11.2)
+    oj (2.14.0)
     orm_adapter (0.5.0)
+    rabl (0.11.7)
+      activesupport (>= 2.3.14)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -137,7 +140,10 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  oj
+  rabl
   rails (= 4.1.8)
+  responders
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   sqlite3

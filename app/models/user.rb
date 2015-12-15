@@ -22,4 +22,6 @@ class User < ActiveRecord::Base
     
     acts_as_followable
     acts_as_follower
+    ￼# Callbacks
+before_create -> { self.token = SecureRandom.hex }, unless: :token?
 end

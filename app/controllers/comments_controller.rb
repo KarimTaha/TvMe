@@ -1,31 +1,31 @@
 class CommentsController < ApplicationController
 	def index
-		@comments = comment.all
+		@comments = Comment.all
 	end
 
 	def show
-		@comment = comment.find(params[:id])
+		@comment = Comment.find(params[:id])
 	end
 
 	def new
-		@comment = comment.new
+		@comment = Comment.new
 	end
 
 	def create
-		@comment = comment.create()
+		@comment = Comment.create()
 	end
 
 	def edit
-		@comment = comment.find(params[:id])
+		@comment = Comment.find(params[:id])
 	end
 
 	def update
-		@comment = comment.find(params[:id])
+		@comment = Comment.find(params[:id])
 		@comment.update()
 	end
 
 	def destroy
-		@comment = comment.find(params[:id])
+		@comment = Comment.find(params[:id])
 		@comment.destroy    
 	end
 end

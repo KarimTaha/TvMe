@@ -54,6 +54,29 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  namespace :api, defaults:{format: 'json'} do
+     resources :users do
+    resources :posts
+    resources :comments
+    resource :wall
+   end
+  resources :walls do
+    resources :posts
+   end
+   resources :posts do
+    resources :comments
+   end
+
+    get 'followers'         , to: 'users#followers'
+    get 'following'         , to: 'users#following' 
+    get 'follow'            , to: 'users#follow'
+    get 'unfollow'          , to: 'users#unfollow'
+    get 'timeline'          , to: 'users#timeline'
+
+    resources :sessions, only: :create
+  end
+
   resources :users do
     resources :posts
     resources :comments
